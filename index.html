@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Audition Toolkit</title>
+<style>
+  body {
+    margin: 0;
+    background: linear-gradient(135deg, #064e40, #022f22);
+    color: #fff;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 100vh;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+  h1 {
+    margin-top: 10px;
+    font-size: 2.5rem;
+    color: #0ff;
+    text-align: center;
+  }
+  .logo {
+    width: 200px;
+    height: 200px;
+    background: url('your-logo.png') no-repeat center/cover;
+    border-radius: 50%;
+    animation: spin 6s linear infinite;
+    margin-top: 20px;
+    flex-shrink: 0;
+  }
+  @keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+  #quote {
+    text-align: center;
+    font-size: 1.4rem;
+    margin-top: 30px;
+    height: 60px;
+    transition: opacity 0.5s ease-in-out;
+    max-width: 90vw;
+  }
+  .buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 40vw;
+    margin-bottom: 20px;
+  }
+  .buttons a {
+    padding: 15px 0;
+    background: #0ff;
+    color: #022f22;
+    text-align: center;
+    font-weight: bold;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 1.3rem;
+    transition: background 0.3s;
+    display: block;
+  }
+  .buttons a:hover {
+    background: #0cc;
+  }
+
+  /* Responsive tweaks */
+  @media (max-width: 600px) {
+    h1 {
+      font-size: 2rem;
+    }
+    #quote {
+      font-size: 1.2rem;
+      height: auto;
+    }
+    .buttons {
+      width: 80vw;
+    }
+    .buttons a {
+      font-size: 1.5rem;
+      padding: 18px 0;
+    }
+    .logo {
+      width: 150px;
+      height: 150px;
+      margin-top: 15px;
+    }
+  }
+</style>
+</head>
+<body>
+
+<h1>🎵 Audition Toolkit 🎵</h1>
+
+<div class="logo"></div> <!-- Replace 'your-logo.png' with your icon -->
+
+<div id="quote">Loading...</div>
+
+<div class="buttons">
+  <a href="aboutUs.html">About Us</a>
+  <a href="privacyPolicy.html">Privacy Policy</a>
+</div>
+
+<script>
+const quotes = [
+  "Music is the strongest form of magic.",
+  "Where words fail, music speaks.",
+  "Editing is the art of storytelling.",
+  "Good music makes good memories.",
+  "A great mix turns sound into soul."
+];
+let index = 0;
+const quoteElement = document.getElementById('quote');
+
+function showNextQuote() {
+  quoteElement.style.opacity = 0;
+  setTimeout(() => {
+    quoteElement.textContent = quotes[index];
+    quoteElement.style.opacity = 1;
+    index = (index + 1) % quotes.length;
+  }, 500);
+}
+
+showNextQuote();
+setInterval(showNextQuote, 3000);
+</script>
+
+</body>
+</html>
